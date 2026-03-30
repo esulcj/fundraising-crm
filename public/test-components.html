@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Component Demo — Fundraising CRM</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <style>
+    .demo-section { padding: 24px 0; border-bottom: 1px solid #e5e5e5; }
+    .demo-section:last-child { border-bottom: none; }
+    .demo-title { margin-bottom: 12px; }
+    .demo-controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .demo-btn {
+      background: #f3f3f3; border: 1px solid #e5e5e5; border-radius: 4px;
+      padding: 6px 14px; font-size: 13px; cursor: pointer;
+    }
+    .demo-btn:hover { background: #e9e9e9; }
+    .demo-target { min-height: 60px; }
+  </style>
+</head>
+<body>
+  <header style="padding: 24px 0; border-bottom: 1px solid #e5e5e5;">
+    <h1 class="t-heading" style="text-align: center;">Component Demo</h1>
+  </header>
+
+  <main>
+    <!-- Skeleton -->
+    <section class="demo-section">
+      <h2 class="t-label demo-title">Skeleton Cards</h2>
+      <div class="demo-controls">
+        <button class="demo-btn" onclick="CRM.components.skeleton(document.getElementById('sk-target'), 1)">1 card</button>
+        <button class="demo-btn" onclick="CRM.components.skeleton(document.getElementById('sk-target'), 3)">3 cards</button>
+        <button class="demo-btn" onclick="CRM.components.skeleton(document.getElementById('sk-target'), 5)">5 cards</button>
+      </div>
+      <div id="sk-target" class="demo-target"></div>
+    </section>
+
+    <!-- Error Banner -->
+    <section class="demo-section">
+      <h2 class="t-label demo-title">Error Banner</h2>
+      <div class="demo-controls">
+        <button class="demo-btn" onclick="CRM.components.errorBanner(document.getElementById('err-target'), 'Something went wrong.')">No retry</button>
+        <button class="demo-btn" onclick="CRM.components.errorBanner(document.getElementById('err-target'), 'Failed to load investors.', function(){ CRM.components.toast('Retrying...', 'info'); })">With retry</button>
+      </div>
+      <div id="err-target" class="demo-target"></div>
+    </section>
+
+    <!-- Loading Spinner -->
+    <section class="demo-section">
+      <h2 class="t-label demo-title">Loading Spinner</h2>
+      <div class="demo-controls">
+        <button class="demo-btn" onclick="CRM.components.loading(document.getElementById('load-target'))">Show</button>
+        <button class="demo-btn" onclick="document.getElementById('load-target').innerHTML=''">Clear</button>
+      </div>
+      <div id="load-target" class="demo-target"></div>
+    </section>
+
+    <!-- Toast -->
+    <section class="demo-section">
+      <h2 class="t-label demo-title">Toast Notifications</h2>
+      <div class="demo-controls">
+        <button class="demo-btn" onclick="CRM.components.toast('Investor saved.', 'success')">Success</button>
+        <button class="demo-btn" onclick="CRM.components.toast('Failed to save.', 'error')">Error</button>
+        <button class="demo-btn" onclick="CRM.components.toast('3 new interactions.', 'info')">Info</button>
+      </div>
+    </section>
+
+    <!-- Empty State -->
+    <section class="demo-section">
+      <h2 class="t-label demo-title">Empty State</h2>
+      <div class="demo-controls">
+        <button class="demo-btn" onclick="CRM.components.empty(document.getElementById('empty-target'), 'No investors found.')">Show</button>
+        <button class="demo-btn" onclick="document.getElementById('empty-target').innerHTML=''">Clear</button>
+      </div>
+      <div id="empty-target" class="demo-target"></div>
+    </section>
+
+    <!-- Retry Button -->
+    <section class="demo-section">
+      <h2 class="t-label demo-title">Retry Button</h2>
+      <div class="demo-controls">
+        <button class="demo-btn" onclick="CRM.components.retryButton(document.getElementById('retry-target'), function(){ CRM.components.toast('Retrying...', 'info'); })">Show</button>
+        <button class="demo-btn" onclick="document.getElementById('retry-target').innerHTML=''">Clear</button>
+      </div>
+      <div id="retry-target" class="demo-target"></div>
+    </section>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/components.js"></script>
+</body>
+</html>
