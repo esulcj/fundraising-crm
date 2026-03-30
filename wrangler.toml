@@ -1,0 +1,9 @@
+name = "fundraising-crm"
+account_id = "845f36daec4f3cab331da0d132110613"
+main = "src/index.js"
+compatibility_date = "2024-09-23"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "fundraising-crm"
+database_id = "REPLACE_WITH_D1_ID"
