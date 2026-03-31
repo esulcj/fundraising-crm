@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Card Queue — Fundraising CRM</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/cards.css">
+</head>
+<body>
+  <!-- Progress bar -->
+  <div class="cq-progress" id="cq-progress" style="width: 0%"></div>
+
+  <!-- Header -->
+  <header class="cq-header">
+    <a href="/" class="cq-header__back">&#8592; Back</a>
+    <span class="cq-header__title">Card Queue</span>
+    <span class="cq-header__counter" id="cq-counter">0 of 0</span>
+  </header>
+
+  <!-- Card stage -->
+  <div class="cq-stage" id="cq-stage"></div>
+
+  <!-- Keyboard hints (desktop) -->
+  <div class="cq-hints">
+    <span class="cq-hint"><span class="cq-hint__key">&#8592;</span><span class="cq-hint__key">k</span> Prev</span>
+    <span class="cq-hint"><span class="cq-hint__key">&#8594;</span><span class="cq-hint__key">j</span> Next</span>
+    <span class="cq-hint"><span class="cq-hint__key">Enter</span> Open</span>
+    <span class="cq-hint"><span class="cq-hint__key">d</span> Done</span>
+    <span class="cq-hint"><span class="cq-hint__key">s</span> Snooze</span>
+    <span class="cq-hint"><span class="cq-hint__key">e</span> Email</span>
+  </div>
+
+  <!-- Mobile swipe hints -->
+  <div class="cq-swipe-hint">
+    <span>&#8592; Swipe left: Snooze</span>
+    <span>Swipe right: Done &#8594;</span>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/components.js"></script>
+  <script src="/js/cards.js"></script>
+</body>
+</html>
