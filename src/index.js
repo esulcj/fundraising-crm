@@ -3,7 +3,37 @@
  * ES5 JavaScript
  */
 
-var routeHandlers = {};
+import { handleInvestors } from "./routes/investors.js";
+import { handleContacts } from "./routes/contacts.js";
+import { handleInteractions } from "./routes/interactions.js";
+import { handleActions } from "./routes/actions.js";
+import { handleMaterials } from "./routes/materials.js";
+import { handleDdItems } from "./routes/dd-items.js";
+import { handleFollowUps } from "./routes/follow-ups.js";
+import { handleAgentConfigs } from "./routes/agent-configs.js";
+import { handleAgentCorrections } from "./routes/agent-corrections.js";
+import { handleAgentExamples } from "./routes/agent-examples.js";
+import { handleEmailThreads } from "./routes/email-threads.js";
+import { handleEmails } from "./routes/emails.js";
+import { handleBriefings } from "./routes/briefings.js";
+import { handleTranscripts } from "./routes/transcripts.js";
+
+var routeHandlers = {
+  "/api/investors": handleInvestors,
+  "/api/contacts": handleContacts,
+  "/api/interactions": handleInteractions,
+  "/api/actions": handleActions,
+  "/api/materials": handleMaterials,
+  "/api/dd-items": handleDdItems,
+  "/api/follow-ups": handleFollowUps,
+  "/api/agent-configs": handleAgentConfigs,
+  "/api/agent-corrections": handleAgentCorrections,
+  "/api/agent-examples": handleAgentExamples,
+  "/api/email-threads": handleEmailThreads,
+  "/api/emails": handleEmails,
+  "/api/briefings": handleBriefings,
+  "/api/transcripts": handleTranscripts
+};
 
 function jsonResponse(data, status) {
   status = status || 200;
@@ -12,7 +42,7 @@ function jsonResponse(data, status) {
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, PATCH, DELETE, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type"
     }
   });
@@ -28,7 +58,7 @@ function corsPreflightResponse() {
     status: 204,
     headers: {
       "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, PATCH, DELETE, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type",
       "Access-Control-Max-Age": "86400"
     }
@@ -45,7 +75,11 @@ function matchRoute(pathname, method, env) {
   }
 
   // Route registration: match prefix and delegate
-  var prefixes = Object.keys(routeHandlers);
+  // Sort by length descending so longer prefixes match first
+  // (e.g., /api/email-threads before /api/emails)
+  var prefixes = Object.keys(routeHandlers).sort(function (a, b) {
+    return b.length - a.length;
+  });
   for (var i = 0; i < prefixes.length; i++) {
     if (pathname.indexOf(prefixes[i]) === 0) {
       return routeHandlers[prefixes[i]];
