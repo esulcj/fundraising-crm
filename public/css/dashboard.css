@@ -1,0 +1,237 @@
+/* ── Dashboard Header ───────────────────────────── */
+.dash-header {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border, #e5e5e5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dash-nav {
+  display: flex;
+  gap: 16px;
+}
+
+.dash-nav__link {
+  font-size: 14px;
+  color: var(--muted, #666);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.dash-nav__link:hover {
+  color: var(--text, #1a1a1a);
+}
+
+/* ── Stats Bar ─────────────────────────────────── */
+.dash-stats {
+  display: flex;
+  gap: 12px;
+  padding: 24px 0;
+  flex-wrap: wrap;
+}
+
+.dash-stat {
+  border: 1px solid var(--border, #e5e5e5);
+  border-radius: 8px;
+  padding: 16px;
+  min-width: 0;
+  flex: 1 1 0;
+}
+
+.dash-stat__number {
+  font-size: 42px;
+  line-height: 1.1;
+  font-weight: 700;
+  color: var(--text, #1a1a1a);
+}
+
+.dash-stat__number--alert {
+  color: var(--accent, #FD384E);
+}
+
+.dash-stat__label {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--muted, #666);
+  margin-top: 4px;
+}
+
+/* ── Quick Actions ─────────────────────────────── */
+.dash-actions {
+  display: flex;
+  gap: 12px;
+  padding-bottom: 24px;
+}
+
+.dash-action-btn {
+  display: inline-block;
+  flex: 1 1 0;
+  padding: 14px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background 0.15s;
+}
+
+.dash-action-btn--primary {
+  background: var(--accent, #FD384E);
+  color: #fff;
+}
+
+.dash-action-btn--primary:hover {
+  background: #e0223a;
+}
+
+.dash-action-btn--secondary {
+  background: var(--bg-subtle, #f9f9f9);
+  color: var(--text, #1a1a1a);
+  border: 1px solid var(--border, #e5e5e5);
+}
+
+.dash-action-btn--secondary:hover {
+  background: #f0f0f0;
+}
+
+/* ── Sections ──────────────────────────────────── */
+.dash-section {
+  padding-bottom: 24px;
+}
+
+.dash-section__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text, #1a1a1a);
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border, #e5e5e5);
+  margin-bottom: 8px;
+}
+
+/* ── Activity List ─────────────────────────────── */
+.dash-activity {
+  list-style: none;
+}
+
+.dash-activity__item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--bg-subtle, #f9f9f9);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.dash-activity__name {
+  font-weight: 500;
+  color: var(--text, #1a1a1a);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dash-activity__name:hover {
+  color: var(--accent, #FD384E);
+}
+
+.dash-activity__type {
+  font-size: 12px;
+  color: var(--muted, #666);
+  background: var(--bg-subtle, #f9f9f9);
+  padding: 1px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.dash-activity__summary {
+  flex: 1;
+  color: var(--muted, #666);
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dash-activity__date {
+  font-size: 12px;
+  color: var(--muted, #666);
+  white-space: nowrap;
+}
+
+/* ── Overdue List ──────────────────────────────── */
+.dash-overdue {
+  list-style: none;
+}
+
+.dash-overdue__item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--bg-subtle, #f9f9f9);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.dash-overdue__desc {
+  flex: 1;
+  color: var(--text, #1a1a1a);
+  font-size: 13px;
+}
+
+.dash-overdue__date {
+  font-size: 12px;
+  color: var(--accent, #FD384E);
+  white-space: nowrap;
+}
+
+/* ── Stage Breakdown ───────────────────────────── */
+.dash-stages {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding-top: 8px;
+}
+
+.dash-stage-tag {
+  font-size: 12px;
+  color: var(--muted, #666);
+  background: var(--bg-subtle, #f9f9f9);
+  border: 1px solid var(--border, #e5e5e5);
+  border-radius: 4px;
+  padding: 2px 8px;
+}
+
+/* ── Mobile (375px default, stack on narrow) ───── */
+@media (max-width: 480px) {
+  .dash-header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .dash-stats {
+    flex-wrap: wrap;
+  }
+
+  .dash-stat {
+    flex: 1 1 calc(50% - 6px);
+  }
+
+  .dash-actions {
+    flex-direction: column;
+  }
+
+  .dash-activity__summary {
+    display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .dash-stat {
+    flex: 1 1 100%;
+  }
+}
