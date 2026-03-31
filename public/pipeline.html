@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pipeline — Fundraising CRM</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pipeline.css">
+</head>
+<body>
+  <header class="pl-header">
+    <div class="pl-header__left">
+      <a href="/" class="t-label text-muted" style="text-decoration: none;">&larr; Back</a>
+    </div>
+    <h1 class="t-heading pl-header__title">Pipeline</h1>
+    <div class="pl-header__right"></div>
+  </header>
+
+  <!-- Filter bar -->
+  <div class="pl-filters">
+    <div class="pl-filters__group">
+      <label class="t-small text-muted">Tier</label>
+      <select id="pl-filter-tier" class="pl-select">
+        <option value="">All</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+      </select>
+    </div>
+    <div class="pl-filters__group">
+      <label class="t-small text-muted">Source</label>
+      <select id="pl-filter-source" class="pl-select">
+        <option value="">All</option>
+      </select>
+    </div>
+    <div class="pl-filters__group">
+      <label class="t-small text-muted">Sort</label>
+      <select id="pl-filter-sort" class="pl-select">
+        <option value="days">Days in stage</option>
+        <option value="name">Name</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Stats row -->
+  <div class="pl-stats" id="pl-stats"></div>
+
+  <!-- Kanban board -->
+  <div class="pl-board" id="pl-board"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/components.js"></script>
+  <script src="/js/pipeline.js"></script>
+</body>
+</html>
